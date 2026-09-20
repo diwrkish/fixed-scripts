@@ -14048,3 +14048,4 @@ loadstringUpdates:Destroy() (game:HttpGet(('https://raw.githubusercontent.com/in
 else print('Infinite Yield is already running.') end
 --script end
 end
+print("fixed by BLOX_FRUIT01110")
