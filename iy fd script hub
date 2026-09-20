@@ -5,8 +5,9 @@
    - text: rgb(248, 248, 248)  #F8F8F8
    - title bar with version + close button
    - "script hub" label at top
-   - buttons: Audio Logger, Dex Explorer, Remote Spy
-   - close: fly up off screen
+   - buttons: Audio Logger, Dex Explorer, Remote Spy,
+              Nameless Admin, Nexus
+   - close: slow fly up off screen
    - right shift toggles
 =============================================================
 ]]
@@ -166,12 +167,18 @@ topLabel.TextSize = 22
 topLabel.ZIndex = 3
 topLabel.Parent = body
 
--- buttons section
-local logSection = Instance.new("Frame")
+-- buttons section (scrollable if it overflows)
+local logSection = Instance.new("ScrollingFrame")
 logSection.Name = "LogSection"
 logSection.Position = UDim2.fromOffset(PAD, LABEL_H + PAD)
 logSection.Size = UDim2.new(1, -PAD * 2, 1, -(LABEL_H + PAD * 2))
 logSection.BackgroundTransparency = 1
+logSection.BorderSizePixel = 0
+logSection.ScrollBarThickness = 4
+logSection.ScrollBarImageColor3 = TEXT_COLOR
+logSection.ScrollBarImageTransparency = 0.6
+logSection.CanvasSize = UDim2.new(0, 0, 0, 0)
+logSection.AutomaticCanvasSize = Enum.AutomaticSize.Y
 logSection.ZIndex = 2
 logSection.Parent = body
 
@@ -235,6 +242,16 @@ buildButton("remote spy", 3, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/simple%20spy%20v3"))()
 end)
 
+-- Nameless Admin
+buildButton("nameless admin", 4, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+end)
+
+-- Nexus
+buildButton("nexus", 5, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/nexus%20hub.lua"))()
+end)
+
 --// ── Open / close animation ────────────────────────────────
 local opened, animating = false, false
 
@@ -246,11 +263,11 @@ local function openHub()
 	main.Size = UDim2.fromOffset(W, H)
 	main.BackgroundTransparency = BG_TRAN
 
-	tween(main, 0.45, {
+	tween(main, 0.55, {
 		Position = UDim2.fromScale(0.5, 0.5),
 	}, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
 
-	task.wait(0.46)
+	task.wait(0.56)
 	animating = false
 	opened = true
 end
@@ -259,13 +276,13 @@ local function closeHub()
 	if not opened or animating then return end
 	animating = true
 
-	-- fly up off the top of the screen + fade out
-	tween(main, 0.4, {
+	-- slower fly up off the top of the screen + fade out
+	tween(main, 0.85, {
 		Position = UDim2.new(0.5, 0, -1.5, 0),
 		BackgroundTransparency = 1,
 	}, Enum.EasingStyle.Back, Enum.EasingDirection.In)
 
-	task.wait(0.42)
+	task.wait(0.87)
 	animating = false
 	opened = false
 	main.Visible = false
@@ -317,4 +334,3 @@ end)
 --// ── Boot ──────────────────────────────────────────────────
 task.wait(0.15)
 openHub()
-print("made by BLOX_FRUIT01110")
