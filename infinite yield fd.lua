@@ -1,3 +1,4 @@
+--fixed by BLOX_FRUIT01110
 local GUI = Instance.new("ScreenGui")
 local AnnGUI = Instance.new("Frame")
 local background = Instance.new("Frame")
