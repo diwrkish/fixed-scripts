@@ -1,25 +1,9 @@
---[[
-=============================================================
-   IY-STYLE HUB
-   - bg: rgb(100, 113, 120)  #647178
-   - text: rgb(248, 248, 248)  #F8F8F8
-   - title bar with version + close button
-   - "script hub" label at top
-   - buttons: Audio Logger, Dex Explorer, Remote Spy,
-              Nameless Admin, Nexus
-   - close: slow fly up off screen
-   - right shift toggles
-=============================================================
-]]
-
---// ── Services ──────────────────────────────────────────────
 local Players      = game:GetService("Players")
 local UIS          = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
 local LP = Players.LocalPlayer
 
---// ── GUI parent ────────────────────────────────────────────
 local guiParent
 do
 	local ok, hui = pcall(function() return gethui and gethui() end)
@@ -34,7 +18,6 @@ end
 local old = guiParent:FindFirstChild("IYHubShell")
 if old then old:Destroy() end
 
---// ── Helpers ───────────────────────────────────────────────
 local function tween(obj, time, props, style, dir)
 	local t = TweenService:Create(
 		obj,
@@ -45,7 +28,6 @@ local function tween(obj, time, props, style, dir)
 	return t
 end
 
---// ── Sizes ─────────────────────────────────────────────────
 local W         = 480
 local H         = 340
 local TITLE_H   = 30
@@ -56,7 +38,6 @@ local PAD       = 10
 local BTN_H     = 34
 local BTN_GAP   = 6
 
---// ── Colors ────────────────────────────────────────────────
 local BG          = Color3.fromRGB(100, 113, 120)
 local BG_TRAN     = 0.15
 local TEXT_COLOR  = Color3.fromRGB(248, 248, 248)
@@ -68,7 +49,6 @@ local BTN_BG_H    = Color3.fromRGB(120, 133, 140)
 local CLOSE_RED   = Color3.fromRGB(200, 40, 40)
 local CLOSE_RED_H = Color3.fromRGB(230, 60, 60)
 
---// ── ScreenGui ─────────────────────────────────────────────
 local gui = Instance.new("ScreenGui")
 gui.Name = "IYHubShell"
 gui.ResetOnSpawn = false
@@ -76,7 +56,6 @@ gui.IgnoreGuiInset = true
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 gui.Parent = guiParent
 
---// ── Main frame ────────────────────────────────────────────
 local main = Instance.new("Frame")
 main.Name = "Main"
 main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -88,7 +67,6 @@ main.BorderSizePixel = 0
 main.ClipsDescendants = true
 main.Parent = gui
 
---// ── Title bar ─────────────────────────────────────────────
 local titleBar = Instance.new("Frame")
 titleBar.Name = "TitleBar"
 titleBar.Size = UDim2.new(1, 0, 0, TITLE_H)
@@ -143,7 +121,6 @@ closeBtn.MouseLeave:Connect(function()
 	closeBtn.BackgroundColor3 = CLOSE_RED
 end)
 
---// ── Body ──────────────────────────────────────────────────
 local body = Instance.new("Frame")
 body.Name = "Body"
 body.Position = UDim2.fromOffset(0, TITLE_H)
@@ -152,7 +129,6 @@ body.BackgroundTransparency = 1
 body.ZIndex = 2
 body.Parent = main
 
--- "script hub" label at top
 local topLabel = Instance.new("TextLabel")
 topLabel.Name = "TopLabel"
 topLabel.Size = UDim2.new(1, 0, 0, LABEL_H)
@@ -167,7 +143,6 @@ topLabel.TextSize = 22
 topLabel.ZIndex = 3
 topLabel.Parent = body
 
--- buttons section (scrollable if it overflows)
 local logSection = Instance.new("ScrollingFrame")
 logSection.Name = "LogSection"
 logSection.Position = UDim2.fromOffset(PAD, LABEL_H + PAD)
@@ -188,7 +163,6 @@ logLayout.SortOrder = Enum.SortOrder.LayoutOrder
 logLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 logLayout.Parent = logSection
 
---// ── Button builder ────────────────────────────────────────
 local function buildButton(name, layoutOrder, onClick)
 	local btn = Instance.new("TextButton")
 	btn.Name = name
@@ -227,39 +201,33 @@ local function buildButton(name, layoutOrder, onClick)
 	return btn
 end
 
--- Audio Logger
 buildButton("audio logger", 1, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/audiologger.luau"))()
 end)
 
--- Dex Explorer
 buildButton("dex explorer", 2, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/dex%20explorer%20beta%201.0.0.lua"))()
 end)
 
--- Remote Spy
 buildButton("remote spy", 3, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/simple%20spy%20v3"))()
 end)
 
--- Nameless Admin
 buildButton("nameless admin", 4, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
 end)
 
--- Nexus
 buildButton("nexus", 5, function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/nexus%20hub.lua"))()
 end)
 
---// ── Open / close animation ────────────────────────────────
 local opened, animating = false, false
 
 local function openHub()
 	if opened or animating then return end
 	animating = true
 	main.Visible = true
-	main.Position = UDim2.new(0.5, 0, 1.5, 0)   -- start below screen
+	main.Position = UDim2.new(0.5, 0, 1.5, 0)
 	main.Size = UDim2.fromOffset(W, H)
 	main.BackgroundTransparency = BG_TRAN
 
@@ -276,7 +244,6 @@ local function closeHub()
 	if not opened or animating then return end
 	animating = true
 
-	-- slower fly up off the top of the screen + fade out
 	tween(main, 0.85, {
 		Position = UDim2.new(0.5, 0, -1.5, 0),
 		BackgroundTransparency = 1,
@@ -286,14 +253,12 @@ local function closeHub()
 	animating = false
 	opened = false
 	main.Visible = false
-	-- reset position so it can reopen cleanly
 	main.Position = UDim2.fromScale(0.5, 0.5)
 	main.BackgroundTransparency = BG_TRAN
 end
 
 closeBtn.MouseButton1Click:Connect(closeHub)
 
---// ── Dragging ──────────────────────────────────────────────
 local dragging, dragStart, startPos
 
 titleBar.InputBegan:Connect(function(input)
@@ -323,7 +288,6 @@ UIS.InputChanged:Connect(function(input)
 	end
 end)
 
---// ── Toggle key ────────────────────────────────────────────
 UIS.InputBegan:Connect(function(input, gpe)
 	if gpe then return end
 	if input.KeyCode == Enum.KeyCode.RightShift then
@@ -331,6 +295,6 @@ UIS.InputBegan:Connect(function(input, gpe)
 	end
 end)
 
---// ── Boot ──────────────────────────────────────────────────
 task.wait(0.15)
 openHub()
+print("made by BLOX_FRUIT01110")
