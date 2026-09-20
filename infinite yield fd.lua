@@ -10142,16 +10142,16 @@ playerenabled = true
 			playerenabled = true
 			NOTIFY.NOTIFY:TweenPosition(UDim2.new(0,0,0,-100), "InOut", "Quart", 0.5, true, nil)
 			MusicPlayer:Playlist(workingIds)
-			MusicPlayer:Show() if qopen == true then quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01) qopen = false end end
-		else MusicPlayer:Show() NOTIFY.NOTIFY:TweenPosition(UDim2.new(0,0,0,-100), "InOut", "Quart", 0.5, true, nil) if qopen == true then quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01) playerenabled = true
-			quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-			quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01) qopen = false end end end)
+			MusicPlayer:Show() if qopen == true then quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01) qopen = false end end
+		else MusicPlayer:Show() NOTIFY.NOTIFY:TweenPosition(UDim2.new(0,0,0,-100), "InOut", "Quart", 0.5, true, nil) if qopen == true then quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01) playerenabled = true
+			quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+			quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01) qopen = false end end end)
 addcmd('setsong','goto a song',{'tosong'},
 function(args, speaker)
 MusicPlayer:SetSong(tonumber(args[1]))
@@ -13820,11 +13820,11 @@ coroutine.resume(coroutine.create(function()
 		})
 	end
 end))
-quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
 qopen = false quickmenu.MouseButton1Click:connect(function()
 if qopen == false then fadelock('off') NOTIFY.NOTIFY:TweenPosition(UDim2.new(0,0,0,-100), "InOut", "Quart", 0.5, true, nil)
 quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, 0), "InOut", "Quart", 0.5, true, nil) wait(0.01)
@@ -13833,11 +13833,11 @@ quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, 0), "InOut", "Quart"
 quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, 0), "InOut", "Quart", 0.5, true, nil) wait(0.01) MusicPlayer:Hide()
 quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, 0), "InOut", "Quart", 0.5, true, nil) wait(0.01)
 quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, 0), "InOut", "Quart", 0.5, true, nil) wait(0.01) qopen = true else
-quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
-quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -50), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.cmds:TweenPosition(UDim2.new(0, 50, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.settings:TweenPosition(UDim2.new(0, 146, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.updates:TweenPosition(UDim2.new(0, 220, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.info:TweenPosition(UDim2.new(0, 290, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
+quickmenu.sheild.mix:TweenPosition(UDim2.new(0, 340, 0, -100), "InOut", "Quart", 0.5, true, nil) wait(0.01)
 if slock == true then fadelock("rbxassetid://1495252742") elseif isagelocked == true then fadelock("rbxassetid://1495252495") end
 qopen = false if playerenabled == true then MusicPlayer:Show() else NOTIFY.NOTIFY:TweenPosition(UDim2.new(0, 0, 0, -38), "InOut", "Quart", 0.5, true, nil) end end end)
 quickmenu.sheild.cmds.MouseButton1Click:connect(function() if cmdOpen == true then
