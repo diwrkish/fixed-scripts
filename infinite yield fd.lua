@@ -473,6 +473,7 @@ CMDs = {
 	'exit',
 	'explode [plr]',
 	'explorer / dex',
+    'remotespy / rspy',
 	'f3x',
 	'face [plr] [ID]',
 	'fart [plr]',
@@ -7832,8 +7833,17 @@ function(args, speaker)
 if speaker.userId ~= LP.userId then
 lponly(speaker)
 else
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/dex%20explorer%20beta%201.0.0.lua", true))()
 end
+end)
+
+addcmd('rspy', 'loads Simple Spy', {'rspy'},
+function(args, speaker)
+    if speaker.userId ~= LP.userId then
+        lponly(speaker)
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/simple%20spy%20v3.lua", true))()
+    end
 end)
 
 addcmd('iyspam', '/shrug',{},
