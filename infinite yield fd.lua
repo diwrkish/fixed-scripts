@@ -474,6 +474,7 @@ CMDs = {
 	'explode [plr]',
 	'explorer / dex',
     'remotespy / rspy',
+    'cobaltspy / cspy',
 	'f3x',
 	'face [plr] [ID]',
 	'fart [plr]',
@@ -1553,6 +1554,15 @@ function(args, speaker)
     for i,v in pairs(players)do
         local pchar=_char(v)
         pchar.Humanoid.Health = args[2]
+    end
+end)
+
+addcmd('cspy', 'loads Cobalt Spy', {'cspy'},
+function(args, speaker)
+    if speaker.userId ~= LP.userId then
+        lponly(speaker)
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Wortexios/CobaltSpy/refs/heads/main/Cobalt"))()
     end
 end)
 
