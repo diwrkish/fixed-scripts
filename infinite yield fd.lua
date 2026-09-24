@@ -390,8 +390,10 @@ CMDs = {
 	'exit',
 	'explode [plr]',
 	'explorer / dex',
-    'remotespy / rspy',
-    'cobaltspy / cspy',
+  'tf / touchfling',
+  'utf / untouchfling',
+  'remotespy / rspy',
+  'cobaltspy / cspy',
 	'f3x',
 	'face [plr] [ID]',
 	'fart [plr]',
@@ -1389,6 +1391,56 @@ function(args,speaker)
 			updatealiases()
             break
         end
+    end
+end)
+
+addcmd('utf','untouchfling',{},
+function(args, speaker)
+    getgenv()._touchFlingActive = false
+
+    if notify then
+        notify("TouchFling", "TouchFling disabled.")
+    end
+end)
+
+addcmd('tf','touchfling',{},
+function(args, speaker)
+    local player = game:GetService("Players").LocalPlayer
+    local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return end
+
+    -- Stop any existing fling before starting a new one
+    if getgenv()._touchFlingActive then
+        getgenv()._touchFlingActive = false
+        task.wait(0.1)
+    end
+
+    getgenv()._touchFlingActive = true
+
+    task.spawn(function()
+        local RunService = game:GetService("RunService")
+        local movel = 0.1
+
+        while getgenv()._touchFlingActive do
+            RunService.Heartbeat:Wait()
+            local char = player.Character
+            local root = char and char:FindFirstChild("HumanoidRootPart")
+
+            if root then
+                local vel = root.Velocity
+                root.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
+                RunService.RenderStepped:Wait()
+                root.Velocity = vel
+                RunService.Stepped:Wait()
+                root.Velocity = vel + Vector3.new(0, movel, 0)
+                movel = -movel
+            end
+        end
+    end)
+
+    -- Notify user
+    if notify then
+        notify("TouchFling", "TouchFling enabled — touch players to fling them.")
     end
 end)
 
