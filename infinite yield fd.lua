@@ -1522,7 +1522,7 @@ end)
 
 function hub()
 if not game.CoreGui:FindFirstChild('ScriptHub') then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/main/iy%20fd%20script%20hub"))() end end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/iy%20fd%20script%20hub.lua"))() end end
 addcmd('hub','opens script hub',{'scripts'},
 function(args, speaker)
 if speaker.userId ~= LP.userId then
