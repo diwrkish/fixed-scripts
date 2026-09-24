@@ -202,7 +202,7 @@ local function buildButton(name, layoutOrder, onClick)
 end
 
 buildButton("audio logger", 1, function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/audiologger.luau"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/audiologger.lua"))()
 end)
 
 buildButton("dex explorer", 2, function()
@@ -210,7 +210,7 @@ buildButton("dex explorer", 2, function()
 end)
 
 buildButton("remote spy", 3, function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/simple%20spy%20v3"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/simple%20spy%20v3.lua"))()
 end)
 
 buildButton("nameless admin", 4, function()
