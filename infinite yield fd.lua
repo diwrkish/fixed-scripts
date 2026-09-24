@@ -1,12 +1,4 @@
 --fixed by BLOX_FRUIT01110
-local GUI = Instance.new("ScreenGui")
-local AnnGUI = Instance.new("Frame")
-local background = Instance.new("Frame")
-local TextBox = Instance.new("TextLabel")
-local shadow = Instance.new("Frame")
-local PopupText = Instance.new("TextLabel")
-local Exit = Instance.new("TextButton")
-local ExitImage = Instance.new("ImageLabel")
 do
     local RobloxGui = game:GetService("CoreGui"):FindFirstChild("RobloxGui")
     if RobloxGui and not RobloxGui:FindFirstChild("TopBarContainer") then
@@ -26,81 +18,6 @@ local function SafeIsFriendsWith(plr, userId)
     local ok, result = pcall(function() return plr:IsFriendsWith(userId) end)
     return ok and result or false
 end
-GUI.Parent = game:GetService("CoreGui")
-
-AnnGUI.Name = "AnnGUI"
-AnnGUI.Parent = GUI
-AnnGUI.Active = true
-AnnGUI.BackgroundTransparency = 1
-AnnGUI.Position = UDim2.new(0.5, -180, 0, -500)
-AnnGUI.Size = UDim2.new(0, 360, 0, 20)
-AnnGUI.ZIndex = 10
-
-background.Name = "background"
-background.Parent = AnnGUI
-background.Active = true
-background.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
-background.BorderSizePixel = 0
-background.Position = UDim2.new(0, 0, 0, 20)
-background.Size = UDim2.new(0, 360, 0, 150)
-background.ZIndex = 10
-
-TextBox.Parent = background
-TextBox.BackgroundTransparency = 1
-TextBox.Position = UDim2.new(0, 5, 0, 5)
-TextBox.Size = UDim2.new(0, 350, 0, 140)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.TextSize = 18
-TextBox.TextWrapped = true
-TextBox.Text = "This version of Infinite Yield has been discontinued. Please go to our website or discord server to get a currently supported version.\n\ndiscord.gg/78ZuWSq\n\ninfyiff.github.io"
-TextBox.TextColor3 = Color3.new(1, 1, 1)
-TextBox.TextXAlignment = Enum.TextXAlignment.Left
-TextBox.TextYAlignment = Enum.TextYAlignment.Top
-TextBox.ZIndex = 10
-
-shadow.Name = "shadow"
-shadow.Parent = AnnGUI
-shadow.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-shadow.BorderSizePixel = 0
-shadow.Size = UDim2.new(0, 360, 0, 20)
-shadow.ZIndex = 10
-
-PopupText.Name = "PopupText"
-PopupText.Parent = shadow
-PopupText.BackgroundTransparency = 1
-PopupText.Size = UDim2.new(1, 0, 0.95, 0)
-PopupText.ZIndex = 10
-PopupText.Font = Enum.Font.SourceSans
-PopupText.TextSize = 14
-PopupText.Text = "Server Announcement"
-PopupText.TextColor3 = Color3.new(1, 1, 1)
-PopupText.TextWrapped = true
-
-Exit.Name = "Exit"
-Exit.Parent = shadow
-Exit.BackgroundTransparency = 1
-Exit.Position = UDim2.new(1, -20, 0, 0)
-Exit.Size = UDim2.new(0, 20, 0, 20)
-Exit.Text = ""
-Exit.ZIndex = 10
-
-ExitImage.Parent = Exit
-ExitImage.BackgroundColor3 = Color3.new(1, 1, 1)
-ExitImage.BackgroundTransparency = 1
-ExitImage.Position = UDim2.new(0, 5, 0, 5)
-ExitImage.Size = UDim2.new(0, 10, 0, 10)
-ExitImage.Image = "rbxassetid://5054663650"
-ExitImage.ZIndex = 10
-
-wait(1)
-AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
-
-Exit.MouseButton1Click:Connect(function()
-	AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-	wait(0.6)
-	AnnGUI:Destroy()
-	run()
-end)
 
 function run()
 --script start
@@ -14024,48 +13941,9 @@ dragg:TweenPosition(UDim2.new(0.5, -225, 0, 100), "InOut", "Quart", 0.5, true, n
 dragg:TweenPosition(UDim2.new(0.5, -225, 0, -600), "InOut", "Quart", 0.5, true, nil) wait(0.5) infopen = false Updates:Destroy() end) end)
 quickmenu.sheild.updates.MouseButton1Click:connect(function() serverinfogui() end) end
 
-local Asset = game:GetService("MarketplaceService"):GetProductInfo(01203480675) wait(0.3)
-if not game.CoreGui:FindFirstChild('IYrun') then
-running = Instance.new("BoolValue") running.Parent = game.CoreGui running.Name = 'IYrun'
-if Asset.Name == "Infinite Yield " .. Version then UTD = true wait(0.5) run() else
-UTD = false local Updates = Instance.new("ScreenGui") local PromptDialog = Instance.new("Frame") local shadow = Instance.new("Frame") local Exit = Instance.new("TextButton")
-local title = Instance.new("TextLabel") local ContainerFrame = Instance.new("Frame") local a = Instance.new("TextLabel") local a2 = Instance.new("TextLabel")
-local a3 = Instance.new("TextLabel") local a2_2 = Instance.new("TextLabel") local UPDATE = Instance.new("TextButton") local Line = Instance.new("Frame")
-Updates.Name = "Updates" Updates.Parent = game.CoreGui PromptDialog.Name = "PromptDialog" PromptDialog.Parent = Updates PromptDialog.Active = true
-PromptDialog.BackgroundColor3 = Color3.new(0, 0, 0) PromptDialog.BackgroundTransparency = 1 PromptDialog.BorderSizePixel = 0
-PromptDialog.Position = UDim2.new(0.5, -219, 0, 100) PromptDialog.Size = UDim2.new(0, 438, 0, 300) PromptDialog.ZIndex = 8 shadow.Name = "shadow"
-shadow.Parent = PromptDialog shadow.BackgroundColor3 = Color3.new(0.639216, 0.631373, 0.647059) shadow.Size = UDim2.new(1, 0, 0.129999995, 0) shadow.ZIndex = 100
-shadow.Style = Enum.FrameStyle.DropShadow Exit.Name = "Exit" Exit.Parent = shadow Exit.BackgroundColor3 = Color3.new(1, 0, 0) Exit.BackgroundTransparency = 0.30000001192093
-Exit.BorderColor3 = Color3.new(1, 0, 0) Exit.Position = UDim2.new(0, 401, 0, 1) Exit.Size = UDim2.new(0, 20, 0, 20) Exit.ZIndex = 110 Exit.FontSize = Enum.FontSize.Size14
-Exit.Text = "" title.Name = "title" title.Parent = shadow title.BackgroundTransparency = 1 title.Position = UDim2.new(0, 8, 0, -4)
-title.Size = UDim2.new(1, -16, 0.800000012, 0) title.ZIndex = 110 title.Font = Enum.Font.SourceSansBold title.TextSize = 30
-title.Text = Asset.Name .. " is available" title.TextColor3 = Color3.new(0.97, 0.97, 0.97) title.TextStrokeTransparency = 0 title.TextWrapped = true title.TextYAlignment = Enum.TextYAlignment.Top
-ContainerFrame.Name = "ContainerFrame" ContainerFrame.Parent = PromptDialog ContainerFrame.BackgroundColor3 = Color3.new(0.639216, 0.631373, 0.647059) ContainerFrame.Position = UDim2.new(0, 0, 0, 31)
-ContainerFrame.Size = UDim2.new(1, 0, 0.75, 0) ContainerFrame.ZIndex = 8 ContainerFrame.Style = Enum.FrameStyle.DropShadow a.Name = "a" a.Parent = ContainerFrame
-a.BackgroundTransparency = 1 a.Position = UDim2.new(0, 8, 0, 50) a.Size = UDim2.new(1, -16, 0.100000001, 0) a.ZIndex = 10 a.Font = Enum.Font.SourceSansBold
-a.FontSize = Enum.FontSize.Size18 a.Text = "infyield.weebly.com - discord.me/infiniteyield" a.TextColor3 = Color3.new(0.97, 0.97, 0.97) a.TextStrokeTransparency = 0
-a.TextWrapped = true a.TextYAlignment = Enum.TextYAlignment.Top a2.Name = "a2" a2.Parent = ContainerFrame a2.BackgroundTransparency = 1 a2.Position = UDim2.new(0, 8, 0, 5)
-a2.Size = UDim2.new(1, -16, 0.300000012, 0) a2.ZIndex = 10 a2.Font = Enum.Font.SourceSansBold a2.TextSize = 20 a2.Text = "The version of Infinite Yield you are using is outdated."
-a2.TextColor3 = Color3.new(0.97, 0.97, 0.97) a2.TextStrokeTransparency = 0 a2.TextWrapped = true a2.TextYAlignment = Enum.TextYAlignment.Top a3.Name = "a3" a3.Parent = ContainerFrame
-a3.BackgroundTransparency = 1 a3.Position = UDim2.new(0, 8, 0, 25) a3.Size = UDim2.new(1, -16, 0.300000012, 0) a3.ZIndex = 10 a3.Font = Enum.Font.SourceSansBold
-a3.TextSize = 20 a3.Text = "You can get a new version at one of these 2 sources." a3.TextColor3 = Color3.new(0.97, 0.97, 0.97) a3.TextStrokeTransparency = 0
-a3.TextWrapped = true a3.TextYAlignment = Enum.TextYAlignment.Top a2_2.Name = "a2" a2_2.Parent = ContainerFrame a2_2.BackgroundTransparency = 1 a2_2.Position = UDim2.new(0, 8, 0, 92)
-a2_2.Size = UDim2.new(1, -16, 0.300000012, 0) a2_2.ZIndex = 10 a2_2.Font = Enum.Font.SourceSansBold a2_2.FontSize = Enum.FontSize.Size24 a2_2.Text = "If your exploit supports httpget, you can update now by clicking 'Update'"
-a2_2.TextColor3 = Color3.new(0.97, 0.97, 0.97) a2_2.TextStrokeTransparency = 0 a2_2.TextWrapped = true a2_2.TextYAlignment = Enum.TextYAlignment.Top UPDATE.Name = "UPDATE"
-UPDATE.Parent = ContainerFrame UPDATE.BackgroundColor3 = Color3.new(0, 0, 0) UPDATE.BackgroundTransparency = 0.80000001192093 UPDATE.BorderColor3 = Color3.new(1, 1, 1)
-UPDATE.Position = UDim2.new(0, 148, 0, 153) UPDATE.Size = UDim2.new(0, 126, 0, 40) UPDATE.ZIndex = 9 UPDATE.Font = Enum.Font.SourceSans
-UPDATE.FontSize = Enum.FontSize.Size18 UPDATE.Text = "Update" UPDATE.TextColor3 = Color3.new(1, 1, 1) Line.Name = "Line" Line.Parent = PromptDialog
-Line.BackgroundColor3 = Color3.new(0, 0, 0) Line.BackgroundTransparency = 0.5 Line.BorderColor3 = Color3.new(0, 0, 0) Line.Position = UDim2.new(0, 16, 0, 121)
-Line.Size = UDim2.new(0.926999986, 0, 0, 1) Line.ZIndex = 8 function Click(mouse)
-PromptDialog:TweenPosition(UDim2.new(0.5, -219, 0, 150), "InOut", "Quart", 0.4, true, nil) wait(0.4)
-PromptDialog:TweenPosition(UDim2.new(0.5, -219, 0, -400), "InOut", "Quart", 0.5, true, nil) wait(0.5)
-Updates:Destroy() run() end Exit.MouseButton1Down:connect(Click) function Click(mouse)
-PromptDialog:TweenPosition(UDim2.new(0.5, -219, 0, 150), "InOut", "Quart", 0.4, true, nil) wait(0.4)
-PromptDialog:TweenPosition(UDim2.new(0.5, -219, 0, -400), "InOut", "Quart", 0.5, true, nil)
-for _, child in pairs(game.CoreGui:GetChildren()) do
-if child.Name == "IYrun" then child:Destroy() end end wait(0.5)
-loadstringUpdates:Destroy() (game:HttpGet(('https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/iyfd.lua'),true))() end UPDATE.MouseButton1Down:connect(Click) end 
-else print('Infinite Yield is already running.') end
+run()
 --script end
 end
+
+run()
 print("fixed by BLOX_FRUIT01110")
