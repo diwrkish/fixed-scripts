@@ -359,7 +359,13 @@ end)
 
     WindowTabs.Gui = Library
     WindowTabs.Main = MainFrame
+    CloseBtn.MouseButton1Click:Connect(function()
+    WindowTabs:Destroy()
+end)
 
+MinBtn.MouseButton1Click:Connect(function()
+    WindowTabs:ToggleVisible()
+end)
     function WindowTabs:Tab(title)
         local Tab = Instance.new("TextButton")
         local UICorner = Instance.new("UICorner")
