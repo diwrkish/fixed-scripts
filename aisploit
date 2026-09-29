@@ -105,7 +105,6 @@ end
 			return false
 		end
 		IsLimitedExecutor = checkLimitedExecutor()
-		local IsGhostMode = nil
 -- ============================================================
 -- MODE SELECTION CONFIG
 -- "auto_blatant" → skip picker, load as Blatant
@@ -113,8 +112,9 @@ end
 -- "manual"       → show picker (default)
 -- ============================================================
 local MODE_CONFIG = {
-    Mode = "auto_ghost",   -- change this
+    Mode = "auto_blatant",   -- change this
 }
+local IsGhostMode = nil
 		local function buildLoadingScreen()
 			local LoadingFrame = Instance.new("ImageLabel")
 			local corner = Instance.new("UICorner")
@@ -287,6 +287,7 @@ local MODE_CONFIG = {
 			return LoadingFrame, LoadingPercentage, LoadingFill
 		end
 		local LoadingFrame, LoadingPercentage, LoadingFill = buildLoadingScreen()
+
 if MODE_CONFIG.Mode == "auto_blatant" then
     IsGhostMode = false
     -- Hide the picker buttons and skip the wait
@@ -11651,137 +11652,6 @@ local healthbarContainer = LocalPlayer.PlayerGui.hotbar["1"].HotbarHealthbarCont
 			CollectionService:GetInstanceAddedSignal("block"):Connect(function()
 				AllBlocks = CollectionService:GetTagged("block")
 			end)
-		end)
-		task.spawn(function()
-			local specialUsers = {
-				"mrdreyoo",
-				"tonightshewillbemine",
-				"yuungasian",
-				"Harleyisopp17",
-				"Sigmaautofarm",
-				"Ned31k",
-				"Matto0613",
-				"slaying_135",
-				"BerneerYT",
-				"islandsiopp4",
-				"oceanicfalcondude101",
-				"hshehzheheh",
-			}
-			local specialChatUsers = { "AlSploitCooking", "ChristmasCandyGobler", "MonkeOnZaCar" }
-			for _k, _v in next, Players:GetPlayers() do
-				_v.Chatted:Connect(function(message)
-					for _k, item in specialUsers do
-						if _v.Name == item and LocalPlayer.Name ~= item and not specialChatUsers[_v.Name] then
-							local chatMessage = message:lower():gsub("%s+", "")
-							if chatMessage then
-								task.spawn(function()
-									if chatMessage:find(";breakmapdefault") then
-										for _k, _v in next, AllBlocks do
-											_v:Destroy()
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";unanchordefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Anchored = false
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";anchordefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Anchored = true
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";lagbackdefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Velocity =
-												Vector3.new((52052 + 947947), (173519 + 826480), (756664 + 243335))
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";uninjectdefault") then
-										UnInjectEvent:Fire()
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";kickdefault") then
-										LocalPlayer:Kick("Kicked by AlSploit AlSploitOwners")
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";killdefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Humanoid.Health = 0
-										end
-									end
-								end)
-							end
-						end
-					end
-				end)
-			end
-			for _k, _v in next, Players:GetPlayers() do
-				_v.Chatted:Connect(function(message)
-					for _k, item in specialChatUsers do
-						if _v.Name == item and LocalPlayer.Name ~= item then
-							local chatMessage = message:lower():gsub("%s+", "")
-							if chatMessage then
-								task.spawn(function()
-									if chatMessage:find(";breakmapdefault") then
-										for _k, _v in next, CollectionService:GetTagged("block") do
-											_v:Destroy()
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";unanchordefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Anchored = false
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";anchordefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Anchored = true
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";lagbackdefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Velocity =
-												Vector3.new((112943 + 887056), (360382 + 639617), (538590 + 461409))
-										end
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";uninjectdefault") then
-										UnInjectEvent:Fire()
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";kickdefault") then
-										LocalPlayer:Kick("Kicked by AlSploit AlSploitOwners")
-									end
-								end)
-								task.spawn(function()
-									if chatMessage:find(";killdefault") then
-										if IsAlive(LocalPlayer) == true then
-											LocalPlayer.Character.PrimaryPart.Humanoid.Health = 0
-										end
-									end
-								end)
-							end
-						end
-					end
-				end)
-			end
 		end)
 		task.spawn(function()
 			CreateNotification(5, "Loaded! Scrollable Tabs, UI Bind: M / Click Button")
