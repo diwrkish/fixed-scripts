@@ -5480,6 +5480,15 @@ ActiveConnections["KillauraConnection"] = RunService.Heartbeat:Connect(function(
 				end)
 			end
 		end)
+local function isMoving()
+    local char = LocalPlayer.Character
+    if not char then return false end
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if not hum then return false end
+    local md = hum.MoveDirection
+    if not md then return false end
+    return md.Magnitude > 0
+end
 		task.spawn(function()
 			if GlobalControllers.AbilityController then
 				local yaminiToggle = blatantTab:CreateToggle({
@@ -5489,11 +5498,17 @@ ActiveConnections["KillauraConnection"] = RunService.Heartbeat:Connect(function(
 							task.wait(1 / Config.YaminiPounceExploit.SpamSpeed.Value)
 							if IsAlive(LocalPlayer) == true and getMatchState() ~= 0 and CurrentKit == "cat" then
 								if (tick() - LastCatPounceTime) > 5.2 then
-									repeat
-										task.wait()
-									until LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0
-									LastCatPounceTime = tick()
-									GlobalControllers.AbilityController:useAbility("CAT_POUNCE")
+repeat
+task.wait()
+if not IsAlive(LocalPlayer) or CurrentKit ~= "cat" then
+break
+end
+until isMoving()
+
+if isMoving() then
+LastCatPounceTime = tick()
+GlobalControllers.AbilityController:useAbility("CAT_POUNCE")
+end
 								end
 							end
 						until Config.YaminiPounceExploit.Value == false or shared[SharedUninjectKey] == true
