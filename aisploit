@@ -112,7 +112,7 @@ end
 -- "manual"       → show picker (default)
 -- ============================================================
 local MODE_CONFIG = {
-    Mode = "auto_blatant",   -- change this
+    Mode = "manual",   -- change this
 }
 local IsGhostMode = nil
 		local function buildLoadingScreen()
