@@ -7,6 +7,9 @@ A curated collection of archived, repaired, and independently reconstructed Robl
 ## Repository overview
 
 This repository now includes a broader set of compatibility-focused and legacy Roblox script versions, along with supporting project documents and contribution guidance.
+## loadstrings
+pshade - loadstring(game:HttpGet("https://raw.githubusercontent.com/diwrkish/fixed-scripts/refs/heads/main/Pshade"))()
+
 
 ## Contents
 
